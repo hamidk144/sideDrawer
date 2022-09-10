@@ -1,0 +1,9 @@
+.clt-backdrop{
+    background-color: rgba(0, 0, 0, 0.186);
+    position: fixed;
+    top: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    z-index: 300;
+    transition: all 0.2s ease-out;
+}
