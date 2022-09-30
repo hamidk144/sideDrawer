@@ -4,49 +4,77 @@ import "./leftDrawer.css";
 
 const LeftDrawer = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selected, setSelected] = useState("");
 
   const handleDrawer = () => {
     setIsDrawerOpen((prevState) => !prevState);
   };
+
+  const drawerLinks1 = ["Home"];
+  const drawerLinks2 = ["Events","Wedding","Professional","Birthday","Religious",];
+  const drawerLinks3 = ["Account", "Booking", "Payment method"];
+  const drawerLinks4 = ["Help Center"];
+
   return (
     <div>
       <button onClick={handleDrawer} className="drawer-btn">
         <img src={require("../../menuIcon.png")} alt="icon" />
       </button>
 
-
       {isDrawerOpen && <Backdrop setIsDrawerOpen={setIsDrawerOpen} />}
 
-      <div className={isDrawerOpen ? "clt-left-drawer open" : "clt-left-drawer"}>
+      <div className={isDrawerOpen?"clt-left-drawer open" : "clt-left-drawer"}>
         <div className="clt-left-drawer-wrapper">
 
           <ul>
-            <li>Home</li>
+            {drawerLinks1.map((link) => (
+              <li
+                className={selected == link && "link-active"}
+                onClick={() => setSelected(link)}
+              >
+                {link}
+              </li>
+            ))}
           </ul>
           <hr />
 
           <ul>
             <h4>Events</h4>
-            <li>Wedding</li>
-            <li>professional</li>
-            <li>Birthday</li>
-            <li>Religious</li>
+            {drawerLinks2.map((link) => (
+              <li
+                className={selected == link && "link-active"}
+                onClick={() => setSelected(link)}
+              >
+                {link}
+              </li>
+            ))}
           </ul>
           <hr />
 
           <ul>
-            <h4>Espace utilisateur</h4>
-            <li>Account</li>
-            <li>Booking</li>
-            <li>Payment method</li>
+            {drawerLinks3.map((link) => (
+              <li
+                className={selected == link && "link-active"}
+                onClick={() => setSelected(link)}
+              >
+                {link}
+              </li>
+            ))}
           </ul>
           <hr />
 
           <ul>
-            <h4>help</h4>
-            <li>Help Center</li>
+            <h4>Help</h4>
+            {drawerLinks4.map((link) => (
+              <li
+                className={selected == link && "link-active"}
+                onClick={() => setSelected(link)}
+              >
+                {link}
+              </li>
+            ))}
           </ul>
-          </div>
+        </div>
       </div>
     </div>
   );

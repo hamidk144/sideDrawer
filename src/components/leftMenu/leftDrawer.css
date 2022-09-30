@@ -55,3 +55,8 @@ margin-bottom: 15px !important;
 margin-top: 0px !important;
 margin-left: 20px;
 }
+
+.link-active{
+  font-weight: 700;
+  background-color: rgba(128, 128, 128, 0.081);
+}
